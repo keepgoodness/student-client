@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 public class RestClientStudentService {
 
 	private final RestTemplate restTemplate;
-	private final String GET_ALL_STUDENTS_URL = "http://localhost:8095/api/students/all";
+	private final String GET_ALL_STUDENTS_URL = "http://localhost:8095/api/students/";
 	private final String GET_STUDENT_URL_BY_ID = "http://localhost:8095/api/students/";
 
 	@Autowired
