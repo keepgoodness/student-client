@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+	<head>
+		<title>Students</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" media="all" th:href="@{/styles/bootstrap.css}">
+		<link rel="stylesheet" media="all" th:href="@{/styles/main.css}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="mb-3"></div>
+			<div class="row">
+				<div th:if="${not #lists.isEmpty(students)}">
+					<h1>Students list</h1>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">First name</th>
+								<th scope="col">Middle name</th>
+								<th scope="col">Last name</th>
+								<th scope="col">Faculty number</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="student: ${students}">
+								<th>
+									<a th:href="@{'/student/'+${student.id}}" th:text="${student.id}"></a>
+								</th>
+								<td th:text="${student.firstName}"></th>
+								<td th:text="${student.middleName}"></td>
+								<td th:text="${student.lastName}"></td>
+								<td th:text="${student.facNumber}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
