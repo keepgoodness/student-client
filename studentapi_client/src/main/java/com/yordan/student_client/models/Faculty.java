@@ -1,4 +1,7 @@
 package com.yordan.student_client.models;
+
+import javax.validation.constraints.Size;
+
 /**
  *
  * @author Jordan
@@ -7,6 +10,7 @@ public class Faculty {
 
 
 	private Long id;
+	@Size(max = 10, message = "Името на факултета не трябва да надвишава 10 символа")
 	private String name;
 
 	public Faculty() {

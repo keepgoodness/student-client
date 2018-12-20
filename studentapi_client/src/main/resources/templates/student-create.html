@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Student</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" media="all" th:href="@{/styles/bootstrap.css}">
+		<link rel="stylesheet" media="all" th:href="@{/styles/main.css}">
+	</head>
+	<body>
+		<div class="container">
+			<div class="mb-3"></div>
+			<div class="row mb-3">
+				<div class="list-group">
+					<a th:href="@{/students}" class="list-group-item list-group-item-action">
+						Списък студенти
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6">
+					<form th:action="@{/student}" method="post" th:object="${student}">
+						<fieldset>
+							<legend>Въведи студент</legend>
+							<div class="form-group">
+								<label for="firsтName">Име</label>
+								<input th:field="*{firstName}" type="text" class="form-control" id="firsName" placeholder="...">
+								<div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:red;">Name Error</div>
+							</div>
+							<div class="form-group">
+								<label for="middleName">Бащино име</label>
+								<input th:field="*{middleName}" type="text" class="form-control" id="middleName" placeholder="...">
+								<div th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}" style="color:red;">Name Error</div>
+							</div>
+							<div class="form-group">
+								<label for="lastName">фамилно име</label>
+								<input th:field="*{lastName}" type="text" class="form-control" id="lastName" placeholder="...">
+								<div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:red;">Name Error</div>
+							</div>
+							<div class="form-group">
+								<label for="facNumber">Факултетен номер</label>
+								<input th:field="*{facNumber}" type="text" class="form-control" id="facNumber" placeholder="...">
+								<div th:if="${#fields.hasErrors('facNumber')}" th:errors="*{facNumber}" style="color:red;">Name Error</div>
+							</div>
+							<div class="form-group">
+								<label for="facultyName">Факултет</label>
+								<input th:field="*{faculty.name}" type="text" class="form-control" id="facultyName" placeholder="име...">
+								<div th:if="${#fields.hasErrors('faculty.name')}" th:errors="*{faculty.name}" style="color:red;">Name Error</div>
+							</div>
+
+							<button type="submit" class="btn btn-primary">Запази</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
